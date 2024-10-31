@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Route;
@@ -7,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NurseController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,4 +47,26 @@ Route::group(['middleware' => 'doctor'], function () {
     Route::get('/doctor/patients/edit/{id}', [PatientController::class, 'edit']);
     Route::post('/doctor/patients/edit/{id}', [PatientController::class, 'update']);
     Route::get('/doctor/patients/delete/{id}', [PatientController::class, 'delete']);
+
+    Route::get('/doctor/appointments', [AppointmentController::class, 'doctor_appointments']);
+    Route::get('/doctor/appointments/scheduled', [AppointmentController::class, 'doctor_completed_appointments']);
+    Route::get('/doctor/appointments/done', [AppointmentController::class, 'doctor_scheduled_appointments']);
+
+});
+
+Route::group(['middleware' => 'nurse'], function () {
+    Route::get('/nurse', [NurseController::class, 'nurse_dashboard']);
+    Route::get('/nurse/patients', [PatientController::class, 'nurse_patients']);
+    Route::get('/nurse/patients/in', [PatientController::class, 'nurse_in_patient']);
+    Route::get('/nurse/patients/out', [PatientController::class, 'nurse_out_patient']);
+    Route::get('/nurse/patients/add', [PatientController::class, 'add']);
+    Route::post('/nurse/patients/add', [PatientController::class, 'create']);
+    Route::get('/nurse/patients/edit/{id}', [PatientController::class, 'edit']);
+    Route::post('/nurse/patients/edit/{id}', [PatientController::class, 'update']);
+    Route::get('/nurse/patients/delete/{id}', [PatientController::class, 'delete']);
+
+    Route::get('/nurse/appointments', [AppointmentController::class, 'appointments']);
+    Route::get('/nurse/appointments/scheduled', [AppointmentController::class, 'completed_appointments']);
+    Route::get('/nurse/appointments/done', [AppointmentController::class, 'scheduled_appointments']);
+
 });

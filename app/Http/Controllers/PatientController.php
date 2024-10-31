@@ -13,10 +13,22 @@ class PatientController extends Controller
         return view('doctor.patients.list', $data);
     }
 
+    public function nurse_patients()
+    {
+        $data["patients"] = Patients::all();
+        return view('nurse.patients.list', $data);
+    }
+
     public function in_patient()
     {
         $data["patients"] = Patients::where('inpatient', true)->get();
         return view('doctor.patients.list', $data);
+    }
+
+    public function nurse_in_patient()
+    {
+        $data["patients"] = Patients::where('inpatient', true)->get();
+        return view('nurse.patients.list', $data);
     }
 
     public function out_patient()
@@ -25,9 +37,15 @@ class PatientController extends Controller
         return view('doctor.patients.list', $data);
     }
 
+    public function nurse_out_patient()
+    {
+        $data["patients"] = Patients::where('inpatient', false)->get();
+        return view('nurse.patients.list', $data);
+    }
+
     public function add()
     {
-        return view('doctor.patients.add');
+        return view('nurse.patients.add');
     }
 
     public function create(Request $request)
@@ -46,13 +64,13 @@ class PatientController extends Controller
         $create->address = $request->address;
         $create->inpatient = $request->inpatient;
         $create->save();
-        return redirect(url('doctor/patients'))->with('success', 'Patient added successfully');
+        return redirect(url('nurse/patients'))->with('success', 'Patient added successfully');
     }
 
     public function edit($id)
     {
         $data['patient'] = Patients::find($id);
-        return view('doctor.patients.edit', $data);
+        return view('nurse.patients.edit', $data);
     }
 
     public function update(Request $request, $id)
@@ -71,14 +89,14 @@ class PatientController extends Controller
         $update->address = $request->address;
         $update->inpatient = $request->inpatient;
         $update->save();
-        return redirect(url('doctor/patients'))->with('success', 'Patient updated successfully');
+        return redirect(url('nurse/patients'))->with('success', 'Patient updated successfully');
     }
 
     public function delete($id)
     {
         $delete = Patients::find($id);
         $delete->delete();
-        return redirect(url('doctor/patients'))->with('warning', 'Patient deleted successfully');
+        return redirect(url('nurse/patients'))->with('warning', 'Patient deleted successfully');
     }
 
     public function search(Request $request)

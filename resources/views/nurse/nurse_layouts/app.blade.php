@@ -48,7 +48,7 @@
     <!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
-    @include('admin.admin_layouts.sidebar')
+    @include('nurse.nurse_layouts.sidebar')
     <!-- End Sidebar-->
 
     @yield('content')

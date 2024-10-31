@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointments;
-use App\Models\Patients;
 use Illuminate\Http\Request;
+use App\Models\Patients;
+use App\Models\Appointments;
 use Auth;
 
 
-class DoctorController extends Controller
+class NurseController extends Controller
 {
-    public function doctor_dashboard()
+    public function nurse_dashboard()
     {
         $data['patients_count'] = Patients::count();
         $data['inpatients_count'] = Patients::where('inpatient', true)->count();

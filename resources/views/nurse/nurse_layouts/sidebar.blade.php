@@ -15,17 +15,17 @@
             </a>
             <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{url('/doctor/appointments')}}">
+                    <a href="{{url('/nurse/appointments')}}">
                         <i class="bi bi-circle"></i><span>Appointments</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{url('/doctor/appointments/scheduled')}}">
+                    <a href="{{url('/nurse/appointments/available')}}">
                         <i class="bi bi-circle"></i><span>Available</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{url('/doctor/appointments/done')}}">
+                    <a href="{{url('/nurse/appointments/done')}}">
                         <i class="bi bi-circle"></i><span>Done</span>
                     </a>
                 </li>
@@ -39,21 +39,34 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{url('/doctor/patients')}}">
+                    <a href="{{url('/nurse/patients')}}">
                         <i class="bi bi-circle"></i><span>All Patients</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{url('/doctor/patients/in')}}">
+                    <a href="{{url('/nurse/patients/in')}}">
                         <i class="bi bi-circle"></i><span>In Patients</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{url('/doctor/patients/out')}}">
+                    <a href="{{url('/nurse/patients/out')}}">
                         <i class="bi bi-circle"></i><span>Out Patients</span>
                     </a>
                 </li>
             </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-journal-text"></i><span>Doctors</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{url('/nurse/doctors')}}">
+                        <i class="bi bi-circle"></i><span>All Doctors</span>
+                    </a>
+                </li>
+            </ul>
+
         </li>
         <!-- End Forms Nav -->
 
