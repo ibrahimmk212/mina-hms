@@ -32,7 +32,9 @@
                                         <i class="bi bi-person"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>145</h6>
+                                        <h6>
+                                            {{$patients_count}}
+                                        </h6>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +55,9 @@
                                         <i class="bi bi-person"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>145</h6>
+                                        <h6>
+                                            {{$doctors_count}}
+                                        </h6>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +78,9 @@
                                         <i class="bi bi-person"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>145</h6>
+                                        <h6>
+                                            {{$nurses_count}}
+                                        </h6>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +101,9 @@
                                         <i class="bi bi-person"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>145</h6>
+                                        <h6>
+                                            {{$pharmacists_count}}
+                                        </h6>
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +125,9 @@
                                         <i class="bi bi-person"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>145</h6>
+                                        <h6>
+                                            {{$lab_scientists_count}}
+                                        </h6>
                                     </div>
                                 </div>
                             </div>
