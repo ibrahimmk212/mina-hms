@@ -6,6 +6,7 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\AdminUserMiddleware;
 use App\Http\Middleware\DoctorUserMiddleware;
+use App\Http\Middleware\PharmacistUserMiddleware;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -18,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin' => AdminUserMiddleware::class,
             'doctor' => DoctorUserMiddleware::class,
             'nurse' => NurseUserMiddleware::class,
+            'pharmacist' => PharmacistUserMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

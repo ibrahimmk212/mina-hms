@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NurseController;
+use App\Http\Controllers\PharmacistController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -68,5 +69,22 @@ Route::group(['middleware' => 'nurse'], function () {
     Route::get('/nurse/appointments', [AppointmentController::class, 'appointments']);
     Route::get('/nurse/appointments/scheduled', [AppointmentController::class, 'completed_appointments']);
     Route::get('/nurse/appointments/done', [AppointmentController::class, 'scheduled_appointments']);
+
+});
+
+Route::group(['middleware' => 'pharmacist'], function () {
+    Route::get('/pharmacist', [pharmacistController::class, 'pharmacist_dashboard']);
+    Route::get('/pharmacist/patients', [PatientController::class, 'pharmacist_patients']);
+    Route::get('/pharmacist/patients/in', [PatientController::class, 'pharmacist_in_patient']);
+    Route::get('/pharmacist/patients/out', [PatientController::class, 'pharmacist_out_patient']);
+    Route::get('/pharmacist/patients/add', [PatientController::class, 'add']);
+    Route::post('/pharmacist/patients/add', [PatientController::class, 'create']);
+    Route::get('/pharmacist/patients/edit/{id}', [PatientController::class, 'edit']);
+    Route::post('/pharmacist/patients/edit/{id}', [PatientController::class, 'update']);
+    Route::get('/pharmacist/patients/delete/{id}', [PatientController::class, 'delete']);
+
+    Route::get('/pharmacist/appointments', [AppointmentController::class, 'appointments']);
+    Route::get('/pharmacist/appointments/scheduled', [AppointmentController::class, 'completed_appointments']);
+    Route::get('/pharmacist/appointments/done', [AppointmentController::class, 'scheduled_appointments']);
 
 });

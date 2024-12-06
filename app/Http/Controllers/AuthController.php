@@ -21,6 +21,9 @@ class AuthController extends Controller
             if (Auth::user()->role == 'nurse') {
                 return redirect('nurse');
             }
+            if (Auth::user()->role == 'pharmacist') {
+                return redirect('pharmacist');
+            }
             return view('auth.login');
         }
         return view('auth.login');
@@ -52,6 +55,10 @@ class AuthController extends Controller
             // check if user is nurse
             if (Auth::user()->role == 'nurse') {
                 return redirect('nurse');
+            }
+
+            if (Auth::user()->role == 'pharmacist') {
+                return redirect('pharmacist');
             }
             return redirect('/');
         } else {

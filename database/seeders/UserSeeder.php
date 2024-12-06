@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Aliyu Musa',
-                'email' => 'labscientist',
+                'email' => 'labscientist@shms.com',
                 'password' => bcrypt('123456'),
                 'role' => 'lab_scientist',
             ],
