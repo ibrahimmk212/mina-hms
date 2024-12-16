@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             PatientSeeder::class,
+            AdminSeeder::class,
             // MedicineSeeder::class,
             // PrescriptionSeeder::class,
             // PrescriptionItemSeeder::class,

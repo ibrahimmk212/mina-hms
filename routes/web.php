@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::get('/', action: [AuthController::class, 'login']);
 Route::post('/', [AuthController::class, 'auth_login']);
 Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'auth_login']);
+Route::get('/verify-otp', function () {
+    return view('auth.verify-otp'); // Create this view
+})->name('verify.otp');
+Route::post('/verify-otp', [AuthController::class, 'verifyOtp']);
 
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin', [AdminDashboardController::class, 'admin_dashboard']);
